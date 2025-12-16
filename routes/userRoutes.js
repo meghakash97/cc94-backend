@@ -1,9 +1,10 @@
-const router = require("express").Router();
-const User = require("../models/User");
+const express = require("express");
+const router = express.Router();
+const User = require("../models/User"); // 👈 CASE-SENSITIVE FIX
 
-router.get("/", async (req, res) => {
-  const users = await User.find({}, "name email");
-  res.json(users);
+// Test route
+router.get("/", (req, res) => {
+  res.json({ message: "User route working" });
 });
 
 module.exports = router;
